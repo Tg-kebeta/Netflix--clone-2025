@@ -4,6 +4,7 @@
 	max-height: 100px;
 	transition: transform 450ms;
 	margin-right: 10px;
+	margin-bottom: 10px;
 }
 .row_posters {
 	display: flex;
@@ -26,4 +27,6 @@
 .row{
 	margin-left: 20px;
 	color:white;
+	font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
 }
