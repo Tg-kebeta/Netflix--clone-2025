@@ -1,4 +1,4 @@
-/* .header-outer-container{
+  /* .header-outer-container{
     position: sticky;
     width: 100%;
     top: 0;
@@ -18,8 +18,8 @@
 .nav-black{
 
     background-color: rgb(20,20,20);
-}
-.header-container{
+} 
+ .header-container{
     width: 90%;
     display: flex;
     justify-content: space-between;
@@ -33,7 +33,7 @@
     align-items: center;
     margin: 0;
     padding: 0;
-} */
+}   */
 .header-outer-container {
   width: 100%;
   background-color: #141414;
