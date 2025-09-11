@@ -56,6 +56,7 @@ const Row = ({ title, fetchUrl, isLargeRow}) => {
     width: "100%",
     playerVars: {
       autoplay: 1,
+      mute: 1,
     },
   };
 
