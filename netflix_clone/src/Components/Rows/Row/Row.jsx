@@ -26,31 +26,30 @@ const Row = ({ title, fetchUrl, isLargeRow}) => {
   }, [fetchUrl]);
 
   const handleHover = (movie) => {
-    if (trailerUrl) {
-      setTrailerUrl("");
-    } else {
       movieTrailer(movie?.title || movie?.name || movie?.original_name)
         .then((url) => {
           const urlParams = new URLSearchParams(new URL(url).search);
           setTrailerUrl(urlParams.get("v"));
         })
         .catch((error) => console.error("Trailer not found:", error));
-    }
   };
-  // const handleClick =(movie) => {
-  // 	if (trailerUrl) {
-  // 		setTrailerUrl('')
-  // 	} else {
-  // 		movieTrailer(movie?.title || movie?.name || movie?.original_name)
-  // 		.then((url) =>{
-  // 			console.log(url);
-  // 			const urlParams = new URLSearchParams(new URL(url).search);
-  // 			console.log(urlParams);
-  // 			console.log(urlParams.get('v'));
-  // 			setTrailerUrl(urlParams.get('v'));
-  // 		})
-  // 	}
-  // }
+    const handleMouseLeave = () => {
+      setTrailerUrl("");
+    };
+  const handleClick =(movie) => {
+  	if (trailerUrl) {
+  		setTrailerUrl('')
+  	} else {
+  		movieTrailer(movie?.title || movie?.name || movie?.original_name)
+  		.then((url) =>{
+  			console.log(url);
+  			const urlParams = new URLSearchParams(new URL(url).search);
+  			console.log(urlParams);
+  			console.log(urlParams.get('v'));
+  			setTrailerUrl(urlParams.get('v'));
+  		})
+  	}
+  }
 
   const opts = {
     height: "390",
@@ -62,7 +61,7 @@ const Row = ({ title, fetchUrl, isLargeRow}) => {
 
   return (
     <div className="row">
-      <h4 >{title}</h4>
+      <h4>{title}</h4>
       <div className="row_posters">
         {movies?.map((movie, index) => (
           <img
@@ -72,6 +71,8 @@ const Row = ({ title, fetchUrl, isLargeRow}) => {
             }`}
             alt={movie.name}
             onMouseEnter={() => handleHover(movie)}
+            onMouseLeave={handleMouseLeave}
+            onClick={() => handleClick(movie)}
             className={`row_poster ${isLargeRow && "row_posterLarge"}`} //
             style={{ cursor: "pointer" }}
           />
