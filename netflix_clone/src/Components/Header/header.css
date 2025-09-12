@@ -1,42 +1,7 @@
-/* .header-outer-container{
-    position: sticky;
-    width: 100%;
-    top: 0;
-    display: flex;
-    justify-content: center; 
-    align-items: center;
-    background-color: rgb(red, green, blue);
-    background-color: rgb(20,20,132);
-    background-color: transparent;
-    height: 10vh;
-    color: white;
-    transition: all 0.5s;
-    transition-timing-function: ease-in;
-    z-index: 1;
-    background-color: red;
-}
-.nav-black{
-
-    background-color: rgb(20,20,20);
-}
-.header-container{
-    width: 90%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: yellow;
-}
-.header-left ul,
-.header-right ul{
-    list-style: none;
-    display: flex;
-    align-items: center;
-    margin: 0;
-    padding: 0;
-} */
+  
 .header-outer-container {
   width: 100%;
-  background-color: #141414;
+  background-color: transparent;
   padding: 10px 20px;
   position: fixed;
   top: 0;
@@ -47,11 +12,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap; /* Allows wrapping on smaller screens */
 }
 
 .header-left {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .netflix-logo {
@@ -66,6 +33,7 @@
   color: white;
   font-size: 14px;
   font-weight: 500;
+  flex-wrap: wrap;
 }
 
 .nav-links li:hover {
@@ -77,6 +45,7 @@
   display: flex;
   align-items: center;
   gap: 20px;
+  flex-wrap: wrap;
 }
 
 .icon {
@@ -84,6 +53,40 @@
   cursor: pointer;
   transition: color 0.3s ease;
 }
+
+/* 🌐 Responsive Design */
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  .header-right {
+    margin-top: 10px;
+    justify-content: flex-start;
+  }
+
+  .netflix-logo {
+    width: 80px;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-links {
+    font-size: 12px;
+  }
+
+  .icon {
+    font-size: 16px;
+  }
+}
+
 
 /* .icon:hover {
   color: #888;
