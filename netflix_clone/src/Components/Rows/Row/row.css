@@ -72,7 +72,7 @@
   transform: scale(1.05);
 }
 
-/* 🌐 Responsive Enhancements */
+/* resposive */
 @media (max-width: 768px) {
   .row_poster {
     max-width: 100px;

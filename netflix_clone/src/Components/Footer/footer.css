@@ -105,7 +105,7 @@
   color: #888;
 }
 
-/* 🌐 Responsive Enhancements */
+/* Responsive  */
 @media (max-width: 768px) {
   .footer-outer-container {
     padding: 50px 15px;
