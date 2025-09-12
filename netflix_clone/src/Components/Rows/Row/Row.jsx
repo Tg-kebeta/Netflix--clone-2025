@@ -9,6 +9,7 @@ import YouTube from 'react-youtube';
 const Row = ({ title, fetchUrl, isLargeRow}) => {
   const [movies, setMovie] = useState([]);
   const [trailerUrl, setTrailerUrl] = useState("");
+  const [focusIn, setFocusIn] = useState("");
 
   const base_url = "https://image.tmdb.org/t/p/original";
 
@@ -26,6 +27,7 @@ const Row = ({ title, fetchUrl, isLargeRow}) => {
   }, [fetchUrl]);
 
   const handleHover = (movie) => {
+    setFocusIn("")
       movieTrailer(movie?.title || movie?.name || movie?.original_name)
         .then((url) => {
           const urlParams = new URLSearchParams(new URL(url).search);
@@ -33,10 +35,14 @@ const Row = ({ title, fetchUrl, isLargeRow}) => {
         })
         .catch((error) => console.error("Trailer not found:", error));
   };
-    const handleMouseLeave = () => {
-      setTrailerUrl("");
+  const handleMouseLeave = () => {
+      if (!focusIn) {
+        setTrailerUrl("");
+      }
+     
     };
-  const handleClick =(movie) => {
+  const handleClick = (movie) => {
+    setFocusIn(true)
   	if (trailerUrl) {
   		setTrailerUrl('')
   	} else {
@@ -56,7 +62,7 @@ const Row = ({ title, fetchUrl, isLargeRow}) => {
     width: "100%",
     playerVars: {
       autoplay: 1,
-      mute: 1,
+      // mute: 1,
     },
   };
 
@@ -74,7 +80,7 @@ const Row = ({ title, fetchUrl, isLargeRow}) => {
             onMouseEnter={() => handleHover(movie)}
             onMouseLeave={handleMouseLeave}
             onClick={() => handleClick(movie)}
-            className={`row_poster ${isLargeRow && "row_posterLarge"}`} //
+            className={`row_poster ${isLargeRow && "row_posterLarge"}`} 
             style={{ cursor: "pointer" }}
           />
         ))}
