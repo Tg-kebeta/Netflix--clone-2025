@@ -6,4 +6,5 @@ import react from '@vitejs/plugin-react-swc'
 export default defineConfig({
   base: "/Netflix--clone-2025/",
   plugins: [react()],
+  
 })
